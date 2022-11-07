@@ -38,8 +38,8 @@ public class AD02_ejemplosConsultas {
         // uno_SelectConStatement();
         // dos_InsertConStatement();
         // tres_InsertConStatementVariable();
-        cuatro_SelectConStatementVariable();
-        // cinco_SelectConSentenciaPreparada();
+        // cuatro_SelectConStatementVariable();
+        cinco_SelectConSentenciaPreparada(); // Esta es mas adecuada que las anteriores
         // seis_ResultSetConMetaDAta();
          // siete_PAConCallableStatement(21, 29);
         
