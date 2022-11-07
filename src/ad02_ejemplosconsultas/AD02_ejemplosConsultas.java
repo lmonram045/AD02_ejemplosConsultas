@@ -32,14 +32,16 @@ public class AD02_ejemplosConsultas {
         // TODO code application logic here
         
         Class.forName("com.mysql.cj.jdbc.Driver");
-        
+        // Ir comentando o descomentando para probar cada uno de los ejemplos
+        // deberian de ir sus correspondientes bloques try catch y cerrar los recursos en los finally (o con recursos)
+
         // uno_SelectConStatement();
         // dos_InsertConStatement();
         // tres_InsertConStatementVariable();
-        // cuatro_SelectConStatementVariable();
+        cuatro_SelectConStatementVariable();
         // cinco_SelectConSentenciaPreparada();
         // seis_ResultSetConMetaDAta();
-         siete_PAConCallableStatement(21, 29);
+         // siete_PAConCallableStatement(21, 29);
         
     }
     
@@ -67,17 +69,26 @@ public class AD02_ejemplosConsultas {
         conBd = DriverManager.getConnection(dirUrl);
         String SQL = "Insert into Persona(nombre,apellidos,edad) values ('Elena','García Sánchez',33);";
 
+        // Se puede usar executeUpdate para insert, update y delete
         Statement stm = conBd.createStatement();
 
+        // Devuelve el numero de filas afectadas
         int filas = stm.executeUpdate(SQL);
 
+        // si filas vale 1 tiene resultados si vale 0 no tiene resultados
         if (filas == 1) {
             System.out.println("Inserción realizada con éxito");
         } else {
             System.out.println("Error en la inserción");
         }
     }
-    
+
+    /**
+     * Ejemplo de inserción con Statement y variables
+     * en este caso vamos pidiendo los datos por teclado.
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
     public static void tres_InsertConStatementVariable() throws ClassNotFoundException, SQLException {
 
         conBd = DriverManager.getConnection(dirUrl);
